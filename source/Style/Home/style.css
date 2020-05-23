@@ -1,0 +1,55 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.clear {
+    clear: both;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2%;
+}
+
+header {
+    background-color: #424242;
+    width: 100%;
+    height: auto;
+    padding: 10px 0;
+}
+
+header p {
+    float: left;
+}
+
+header form {
+    float: right;
+}
+
+header label {
+    margin-right: 10px;
+    color: white;
+    font-size: 23px;
+}
+
+header p {
+    color: white;
+    font-size: 23px;
+}
+
+form input[type=text] {
+    padding: 0 8px;
+    width: 200px;
+    height: 20px; 
+}
+
+form input[type=submit] {
+    width: 50px;
+    border: 0;
+    height: 20px;
+}
+

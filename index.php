@@ -10,15 +10,11 @@ $router->namespace("Source\Controllers");
 
 $router->group(null);
 $router->get("/","ForumController:home");
+$router->post("/","ForumController:home");
 
 $router->dispatch();
 
-$router->group("ooops");
-$router->get("/{errcode}", "ForumController:error");
 
-if($router->error()) {
-    $router->redirect("/ooops/{$router->error()}");
-};
 
 
 
