@@ -7,12 +7,14 @@ class ForumController
 
     public $forumModel;
     public $topicModel;
+    public $postModel;
     public $forumUtil;
 
     public function __construct()
     {
         $this->forumModel = new \Source\Models\ForumModel;
         $this->topicModel = new \Source\Models\TopicModel;
+        $this->postModel = new \Source\Models\PostModel;
         $this->forumUtil = new \Source\Util\Utility;
     }
 
@@ -27,7 +29,7 @@ class ForumController
             $this->forumModel->registerForum($forum_name,$forum_description,$forum_slug);
         }
 
-        $forums = $this->forumModel->forumList();
+        $forums = $this->forumModel->forumList(true,"");
         include("source/views/home.php");
     }
 
@@ -42,9 +44,19 @@ class ForumController
             $this->topicModel->registerTopic($name_topic,$description_topic,$slug_topic,$data);
         }
 
-        $topics = $this->topicModel->listTopics($data['slug']);
-        $topicsInfo = $this->topicModel->getInfoTopic($data['slug'],false);
+        $topics = $this->topicModel->listTopics($data['slugForum']);
+        $topicsInfo = $this->topicModel->getInfoTopic($data['slugForum'],false);
+        $forumsInfo = $this->forumModel->forumList(false,$data['slugForum']);
+
         include("source/views/topics.php");
+    }
+
+    public function posts($data)
+    {
+        $topicsInfo = $this->topicModel->getInfoTopic($data['slugForum'],false);
+        $forumsInfo = $this->forumModel->forumList(false,$data['slugForum']);
+        
+        include("source/views/post.php");
     }
 
     public function error($data)

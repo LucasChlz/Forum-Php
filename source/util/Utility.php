@@ -24,4 +24,9 @@ class Utility
     {
         echo "<script>alert('.$msg.')</script>";
     }
+
+    public static function getDataInfo($data)
+    {
+        return $data;
+    }
 }

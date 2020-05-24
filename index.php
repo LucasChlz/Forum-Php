@@ -13,8 +13,12 @@ $router->get("/","ForumController:home");
 $router->post("/","ForumController:home");
 
 $router->group("/topics");
-$router->get("/{slug}","ForumController:topics");
-$router->post("/{slug}","ForumController:topics");
+$router->get("/{slugForum}","ForumController:topics");
+$router->post("/{slugForum}","ForumController:topics");
+
+$router->group("/post");
+$router->get("/{slugForum}/{slugTopic}","ForumController:posts");
+
 
 
 $router->dispatch();

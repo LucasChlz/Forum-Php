@@ -22,11 +22,20 @@ class ForumModel
         
     }
 
-    public function forumList()
+    public function forumList($state,$slug)
     {
-        $sql = \Source\Util\MySql::connect()->prepare("SELECT * FROM `tb_forum`");
-        $sql->execute();
         
-        return $forums = $sql->fetchAll();
+        if($state == true)
+        {
+            $sql = \Source\Util\MySql::connect()->prepare("SELECT * FROM `tb_forum`");
+            $sql->execute();
+            return $forums = $sql->fetchAll();
+
+        }else if($state == false AND $slug != "")
+        {
+            $sql = \Source\Util\MySql::connect()->prepare("SELECT * FROM `tb_forum` WHERE slug_forum = ?");
+            $sql->execute(array($slug));
+            return $forums = $sql->fetch();
+        }
     }
 }

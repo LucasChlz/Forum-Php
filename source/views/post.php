@@ -9,7 +9,7 @@
 <body>
     <header>
         <div class="container">
-            <p>you are in: <a href="<?= URL_PATH; ?>">forums</a> > <p><?= $forumsInfo['name_forum']; ?></p></p>
+            <p>you are in: <a href="<?= URL_PATH; ?>">forums</a> > <a href="<?= URL_PATH.'/topics/'.$forumsInfo['slug_forum'] ?>"><?= $forumsInfo['name_forum']; ?></a> > <p><?= $topicsInfo['name_topic'] ?></p></p>
 
             <form method="POST">
                 <label>create a topic</label>
@@ -23,11 +23,7 @@
 
     <div class="container">
         <div class="forums">
-            <?php foreach($topics as $key => $value){ ?>
-                <a href="<?= URL_PATH; ?>/post/<?= $value['slug_forum']; ?>/<?= $value['slug_topic']; ?>"><h2><?= $value['name_topic'] ?></h2></a>
-                <p><?= $value['description_topic'] ?></p>
-                <hr><!--forum-single-->
-            <?php } ?>
+           
         </div><!--forums-->
     </div><!--container-->
 </body>

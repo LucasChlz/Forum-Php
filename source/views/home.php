@@ -10,7 +10,6 @@
     <header>
         <div class="container">
             <p>you are in: forums</p>
-
             <form method="POST">
                 <label>create a forum</label>
                 <input type="text" name="forum_name" placeholder="forum name">
