@@ -24,9 +24,13 @@
     <div class="container">
         <div class="forums">
             <?php foreach($forums as $key => $value){ ?>
+                <?php
+                    $getTopicNumer = \Source\Models\TopicModel::getInfoTopic($value['slug_forum'],true);
+                ?>
+                <span>number of topics <?= $getTopicNumer; ?></span>
                 <a href="<?= URL_PATH; ?>/topics/<?= $value['slug_forum']; ?>"><h2><?= $value['name_forum'] ?></h2></a>
                 <p><?= $value['description'] ?></p>
-                <hr><!--forum-single-->
+                <hr>
             <?php } ?>
         </div><!--forums-->
     </div><!--container-->

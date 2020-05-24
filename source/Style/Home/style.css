@@ -79,3 +79,12 @@ header a {
     text-decoration: underline;
 }
 
+.forums span {
+    position: relative;
+    top: 35px;
+    right: 40px;
+    font-size: 18px;
+    text-align: right;
+    display: block;
+}
+

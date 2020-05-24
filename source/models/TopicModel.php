@@ -23,18 +23,23 @@ class TopicModel
         }
     }
 
-    public function getInfoTopic($slug_forum)
+    public static function getInfoTopic($slug_forum,$count)
     {
         $sql = \Source\Util\MySql::connect()->prepare("SELECT * FROM `tb_topics` WHERE slug_forum = ? ");
-        $sql->execute(array($slug_forum['slug']));
+        $sql->execute(array($slug_forum));
 
-        return $sql->fetch();
+        if($count == true){
+            return $sql->rowCount();
+        }else if($count == false){
+            return $sql->fetch();
+        }
+
     }
 
     public function listTopics($slug_forum)
     {
         $sql = \Source\Util\MySql::connect()->prepare("SELECT * FROM `tb_topics` WHERE slug_forum = ? ");
-        $sql->execute(array($slug_forum['slug']));
+        $sql->execute(array($slug_forum));
 
         return $sql->fetchAll();
     }
