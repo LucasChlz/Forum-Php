@@ -6,11 +6,13 @@ class ForumController
 {
 
     public $forumModel;
+    public $topicModel;
     public $forumUtil;
 
     public function __construct()
     {
         $this->forumModel = new \Source\Models\ForumModel;
+        $this->topicModel = new \Source\Models\TopicModel;
         $this->forumUtil = new \Source\Util\Utility;
     }
 
@@ -31,7 +33,15 @@ class ForumController
 
     public function topics($data)
     {
-        echo 'ola';
+        if(isset($_POST['register_topic']))
+        {
+            $name_topic = $_POST['name_topic'];
+            $description_topic = $_POST['description_topic'];
+            $slug_topic = $this->forumUtil->generateSlug($name_topic);
+
+            $this->topicModel->registerTopic($name_topic,$description_topic,$slug_topic,$data);
+        }
+        include("source/views/topics.php");
     }
 
     public function error($data)

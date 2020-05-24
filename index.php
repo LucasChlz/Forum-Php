@@ -14,6 +14,7 @@ $router->post("/","ForumController:home");
 
 $router->group("/topics");
 $router->get("/{slug}","ForumController:topics");
+$router->post("/{slug}","ForumController:topics");
 
 
 $router->dispatch();
