@@ -41,6 +41,9 @@ class ForumController
 
             $this->topicModel->registerTopic($name_topic,$description_topic,$slug_topic,$data);
         }
+
+        $topics = $this->topicModel->listTopics($data);
+        $topicsInfo = $this->topicModel->getInfoTopic($data);
         include("source/views/topics.php");
     }
 

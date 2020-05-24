@@ -11,6 +11,7 @@ class TopicModel
         {
             \Source\Util\Utility::jsAlert("fill in all fields");
         }else{
+
             $sql = \Source\Util\MySql::connect()->prepare("INSERT INTO `tb_topics` VALUES (null,?,?,?,?) ");
             if($sql->execute(array($name_topic,$description_topic,$slug_topic,$slug_forum['slug'])))
             {
@@ -18,6 +19,23 @@ class TopicModel
             }else {
                 \Source\Util\Utility::jsAlert("error creating forum, try again");
             }
+
         }
+    }
+
+    public function getInfoTopic($slug_forum)
+    {
+        $sql = \Source\Util\MySql::connect()->prepare("SELECT * FROM `tb_topics` WHERE slug_forum = ? ");
+        $sql->execute(array($slug_forum['slug']));
+
+        return $sql->fetch();
+    }
+
+    public function listTopics($slug_forum)
+    {
+        $sql = \Source\Util\MySql::connect()->prepare("SELECT * FROM `tb_topics` WHERE slug_forum = ? ");
+        $sql->execute(array($slug_forum['slug']));
+
+        return $sql->fetchAll();
     }
 }
