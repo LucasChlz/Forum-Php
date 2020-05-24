@@ -20,5 +20,15 @@
             <div class="clear"></div>
         </div><!--container-->
     </header>
+
+    <div class="container">
+        <div class="forums">
+            <?php foreach($forums as $key => $value){ ?>
+                <a href="<?= URL_PATH; ?>/topics/<?= $value['slug_forum']; ?>"><h2><?= $value['name_forum'] ?></h2></a>
+                <p><?= $value['description'] ?></p>
+                <hr><!--forum-single-->
+            <?php } ?>
+        </div><!--forums-->
+    </div><!--container-->
 </body>
 </html>

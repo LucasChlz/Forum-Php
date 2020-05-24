@@ -25,7 +25,13 @@ class ForumController
             $this->forumModel->registerForum($forum_name,$forum_description,$forum_slug);
         }
 
+        $forums = $this->forumModel->forumList();
         include("source/views/home.php");
+    }
+
+    public function topics($data)
+    {
+        echo 'ola';
     }
 
     public function error($data)
