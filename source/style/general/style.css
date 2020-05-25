@@ -151,11 +151,12 @@ header a {
     font-weight: bold;
 }
 
-.posts textarea {
+.posts .txt {
     margin-top: 10px;
     width: 100%;
     height: 100px;
-    resize: vertical;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
 }
 
 

@@ -21,8 +21,8 @@
             <?php foreach($posts as $key => $value){ ?>
                 <span>Name: </span><span><?= $value['name'] ?></span><br>
                 <span>Subject: </span><span><?= $value['subject'] ?></span><br>
-                <textarea><?= $value['message']; ?></textarea>
-                <hr><!--forum-single-->
+                <div class="txt"><?= $value['message']; ?></div>
+                <hr>
             <?php } ?>
         </div><!--posts-->
     </div><!--container-->

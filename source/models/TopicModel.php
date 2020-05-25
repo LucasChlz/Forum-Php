@@ -13,7 +13,7 @@ class TopicModel
         }else{
 
             $sql = \Source\Util\MySql::connect()->prepare("INSERT INTO `tb_topics` VALUES (null,?,?,?,?) ");
-            if($sql->execute(array($name_topic,$description_topic,$slug_topic,$slug_forum['slug'])))
+            if($sql->execute(array($name_topic,$description_topic,$slug_topic,$slug_forum)))
             {
                 \Source\Util\Utility::jsAlert("topic successfully creating");
             }else {

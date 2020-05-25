@@ -41,7 +41,7 @@ class ForumController
             $description_topic = $_POST['description_topic'];
             $slug_topic = $this->forumUtil->generateSlug($name_topic);
 
-            $this->topicModel->registerTopic($name_topic,$description_topic,$slug_topic,$data);
+            $this->topicModel->registerTopic($name_topic,$description_topic,$slug_topic,$data['slugForum']);
         }
 
         $topics = $this->topicModel->listTopics($data['slugForum']);
