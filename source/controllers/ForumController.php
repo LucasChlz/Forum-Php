@@ -55,6 +55,11 @@ class ForumController
     {
         $topicsInfo = $this->topicModel->getInfoTopic($data['slugForum'],false);
         $forumsInfo = $this->forumModel->forumList(false,$data['slugForum']);
+
+        $slug_forum = $this->forumUtil->generateSlug($forumsInfo['name_forum']);
+        $slug_topic = $this->forumUtil->generateSlug($topicsInfo['name_topic']);
+
+        $posts = $this->postModel->listPosts($slug_forum,$slug_topic);
         
         include("source/views/post.php");
     }
@@ -63,7 +68,18 @@ class ForumController
     {
         $topicsInfo = $this->topicModel->getInfoTopic($data['slugForum'],false);
         $forumsInfo = $this->forumModel->forumList(false,$data['slugForum']);
-        
+
+        if(isset($_POST['create_post']))
+        {
+            $name = $_POST['name'];
+            $subject = $_POST['subject'];
+            $message = $_POST['message'];
+            $slug_forum = $this->forumUtil->generateSlug($forumsInfo['name_forum']);
+            $slug_topic = $this->forumUtil->generateSlug($topicsInfo['name_topic']);
+            
+            $this->postModel->createPost($name,$subject,$message,$slug_forum,$slug_topic);
+        }
+
         include("source/views/create_post.php");
     }
 

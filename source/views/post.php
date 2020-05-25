@@ -17,9 +17,14 @@
     </header>
 
     <div class="container">
-        <div class="forums">
-           
-        </div><!--forums-->
+        <div class="posts">
+            <?php foreach($posts as $key => $value){ ?>
+                <span>Name: </span><span><?= $value['name'] ?></span><br>
+                <span>Subject: </span><span><?= $value['subject'] ?></span><br>
+                <textarea><?= $value['message']; ?></textarea>
+                <hr><!--forum-single-->
+            <?php } ?>
+        </div><!--posts-->
     </div><!--container-->
 </body>
 </html>

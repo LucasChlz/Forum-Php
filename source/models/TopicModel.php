@@ -17,7 +17,7 @@ class TopicModel
             {
                 \Source\Util\Utility::jsAlert("topic successfully creating");
             }else {
-                \Source\Util\Utility::jsAlert("error creating forum, try again");
+                \Source\Util\Utility::jsAlert("error creating topic, try again");
             }
 
         }
