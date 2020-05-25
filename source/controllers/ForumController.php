@@ -59,6 +59,14 @@ class ForumController
         include("source/views/post.php");
     }
 
+    public function createPost($data)
+    {
+        $topicsInfo = $this->topicModel->getInfoTopic($data['slugForum'],false);
+        $forumsInfo = $this->forumModel->forumList(false,$data['slugForum']);
+        
+        include("source/views/create_post.php");
+    }
+
     public function error($data)
     {
         echo "<h1>Error {$data{"errcode"}}</h1>";

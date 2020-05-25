@@ -49,6 +49,7 @@ form input[type=text] {
 
 form input[type=submit] {
     width: 50px;
+    cursor: pointer;
     border: 0;
     height: 20px;
 }
@@ -66,6 +67,17 @@ form input[type=submit] {
 
 header a {
     color: white;
+}
+
+.create {
+    float: right;
+    font-size: 23px;
+    color: white;
+    text-decoration: none;
+}
+
+.create:hover {
+    text-decoration: underline;
 }
 
 .forums p {
@@ -87,4 +99,49 @@ header a {
     text-align: right;
     display: block;
 }
+
+/* CREATE POST */
+
+.create_post form {
+    width: 100%;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%,-20%);
+    max-width: 900px;
+}
+
+.create_post form h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.create_post form input[type="text"] {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+}
+
+.create_post form textarea {
+    width: 100%;
+    height: 200px;
+    padding: 5px 8px;
+    border: 1px solid #ccc;
+    resize: vertical;
+}
+
+.create_post form input[type=submit] {
+    width: 130px;
+    height: 30px;
+    background: #ccc;
+    color: white;
+    cursor: pointer;
+}
+
+.create_post form input[type=submit]:hover {
+    background: #424242;
+    transition: 0.5s;
+}
+
 

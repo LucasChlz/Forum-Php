@@ -19,6 +19,10 @@ $router->post("/{slugForum}","ForumController:topics");
 $router->group("/post");
 $router->get("/{slugForum}/{slugTopic}","ForumController:posts");
 
+$router->group("/create");
+$router->get("/{slugForum}/{slugTopic}","ForumController:createPost");
+$router->post("/{slugForum}/{slugTopic}","ForumController:createPost");
+
 
 
 $router->dispatch();
